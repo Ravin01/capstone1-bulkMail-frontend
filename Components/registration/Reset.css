@@ -1,0 +1,62 @@
+.reset-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: #D0D3D4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reset-form{
+    height: 250px;
+    width: 350px;
+    display: flex;
+    border: 1px solid #20dbc2;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.reset-head{
+    font-size: 25px;
+    padding-bottom: 40px;
+}
+
+.reset-logo{
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.reset-in{
+    width: 280px;
+    height: 40px;
+    border-radius: 18px;
+    padding: 12px;
+    background: #D0D3D4;
+    font-weight: 700;
+}
+
+.reset-in:focus{
+    outline: none;
+    border: 3px solid #145A32;
+    box-shadow: 5px 5px 15px #145A32;
+}
+
+.reset-btn{
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #20dbc2;
+    border: none;
+    font-weight: 700;
+}
+
+.reset-hold{
+    padding-top: 20px;
+    width: 280px;
+    text-align: center;
+}

@@ -1,0 +1,7 @@
+.mails-table, .mails-table-body, .mails-table-header{
+    width: 75vw;
+    text-align: center;
+}
+td, tbody, thead{
+    overflow-x: hidden;
+}

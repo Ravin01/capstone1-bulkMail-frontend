@@ -1,0 +1,46 @@
+.sideNav-container{
+    height: 100vh;
+    width: 20vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #148F77;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: black;
+}
+.sideNav-logout{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+.sideNav-icon{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logout-btn{
+    font-weight: 700;
+}
+
+.logo{
+    font-size: 25px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+.sideNav-header{
+    padding: 20px;
+}
+.sideNav-con{
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+}

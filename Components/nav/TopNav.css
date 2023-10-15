@@ -1,0 +1,21 @@
+.search{
+    width: 30vw;
+    height: 33px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* position: absolute; */
+}
+.search:focus{
+    outline: none;
+}
+/* .fa-magnifying-glass{
+    position: relative;
+    top: 8px;
+    left: 10px;
+} */
+.topNav-profile{
+    height: 45px;
+    width: 45px;
+    border-radius: 60%;
+}

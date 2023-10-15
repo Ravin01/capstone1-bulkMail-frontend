@@ -1,0 +1,126 @@
+.sendMail-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+}
+.sendMail-con2{
+    height: 78vh;
+    width: 60vw;
+    background-color: #ECF0F1;
+    position: relative;
+    left: 22vw;
+    top: 9vh;
+    border-radius: 15px;
+    box-shadow: #1D8348 0px 3px 8px;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: space-between;
+}
+.sendMail-con2::-webkit-scrollbar {
+    display: none;
+  }
+.sendMail-form{
+    padding: 20px;
+    width: 500px;
+    height: auto;
+}
+.home-cancel-btn{
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    font-weight: 800;
+}
+.sendMail-label{
+    color: black;
+    font-weight: 600;
+}
+.sendMail-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+}
+.sendMail-div-text{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+.sendMail-in{
+    width: 320px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    padding: 0px 10px;
+    background: #1C2833;
+    color: #ECF0F1;
+}
+.sendMail-in:focus, .sendMail-text:focus{
+    outline: none;
+}
+.sendMail-in::placeholder{
+    color: #ECF0F1;
+    opacity: 0.7;
+}
+.sendMail-text::placeholder{
+    color: #ECF0F1;
+    opacity: 0.7;
+}
+.sendMail-text{
+    width: 320px;
+    height: 250px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    background-color: #1C2833;
+    color: #ECF0F1;
+}
+.sendMail-btn{
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #17202A;
+    color: #ECF0F1;
+    font-weight: 700;
+}
+.chip-container-home{
+    margin: 53px 30px 0px 0px;
+}
+.chip-container{
+    width: 250px;
+    height: 350px;
+    background-color: #1C2833;
+    border-radius: 12px;
+    color: #ECF0F1;
+    padding: 15px;
+    font-size: 12px;
+    overflow-y: scroll;
+}
+.chip-align{
+    padding: 0px 5px 5px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+.chip-container::-webkit-scrollbar{
+    display: none;
+}
+.chip{
+    margin: 2px 0px;
+}
+.cancelEmail-btn{
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 0px 5px;
+    background-color: red;
+    border: none;
+}
