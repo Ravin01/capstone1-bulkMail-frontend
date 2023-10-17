@@ -16,6 +16,24 @@
     right: 60px;
     bottom: 70px;
 }
+.home-main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    width: 75vw;
+    margin: 11vh 0px 0px 23vw;
+    overflow: scroll;
+}
+.home-main-container::-webkit-scrollbar{
+    display: none;
+}
+@media screen and (max-width:885px){
+    .home-main-container{
+        margin: 10vh 0px 0px 0vw;
+        width: 100vw;
+    }
+}
 
 @media screen and (max-width:600px) {
     .home-mail-send{

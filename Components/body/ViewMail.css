@@ -1,0 +1,219 @@
+.viewMail-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .viewMail-con2 {
+    height: 78vh;
+    width: 60vw;
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    box-shadow: #1d8348 0px 3px 8px;
+  }
+  .viewMail-con2::-webkit-scrollbar {
+    display: none;
+  }
+  .viewMail-form {
+    padding: 0px 20px 20px 20px;
+    width: 100%;
+  }
+  .viewMail-cancel-btn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  .viewMail-label {
+    color: black;
+    font-weight: 600;
+    width: 15vw;
+  }
+  .viewMail-div {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 20px 0px;
+  }
+  .viewMail-div-text {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin: 20px 0px;
+  }
+  .viewMail-in {
+    width: 23vw;
+    height: 20px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    background: #1c2833;
+    color: #ecf0f1;
+  }
+  .viewMail-in::placeholder {
+    color: #ecf0f1;
+    opacity: 0.7;
+  }
+  .viewMail-text::placeholder {
+    color: #ecf0f1;
+    opacity: 0.7;
+  }
+  .viewMail-text {
+    font-size: 12px;
+    width: 40vw;
+    height: 370px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    background-color: #1c2833;
+    color: #ecf0f1;
+    overflow: scroll;
+  }
+  .viewMail-text::-webkit-scrollbar{
+    display: none;
+}
+  .viewMail-btn {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: #17202a;
+    color: #ecf0f1;
+    font-weight: 700;
+  }
+  .chip-container-home {
+    margin: 0px 30px 75px 0px;
+  }
+ 
+  .viewMail-writeText {
+    margin: 20px;
+  }
+  .viewMail-con2::-webkit-scrollbar{
+      display: none;
+  }
+  .viewMail-mail-cancelBtn{
+      position: absolute;
+      top: 35px;
+      left: 60px;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  @media screen and (max-width: 950px) {
+    .viewMail-con2 {
+      height: 78vh;
+      width: 60vw;
+      background-color: #ecf0f1;
+      border-radius: 15px;
+      box-shadow: #1d8348 0px 3px 8px;
+      overflow-y: scroll;
+      position: absolute;
+    }
+    .viewMail-form {
+      position: relative;
+      top: 5px;
+      padding: 20px;
+      width: 55vw;
+      height: auto;
+    }
+    .viewMail-content {
+      overflow-y: scroll;
+      display: block;
+    }
+    
+    .viewMail-in {
+      width: 36vw;
+      height: 30px;
+      border-radius: 10px;
+      border: none;
+      padding: 0px 10px;
+      background: #1c2833;
+      color: #ecf0f1;
+    }
+    .viewMail-text {
+      width: 36vw;
+      height: 350px;
+      border-radius: 10px;
+      border: none;
+      padding: 5px 10px;
+      background-color: #1c2833;
+      color: #ecf0f1;
+    }
+    .viewMail-mail-cancelBtn{
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  }
+  @media screen and (max-width:480px) {
+      .viewMail-con2 {
+          height: 72vh;
+          width: 80vw;
+          background-color: #ecf0f1;
+          border-radius: 15px;
+          box-shadow: #1d8348 0px 3px 8px;
+          overflow-y: scroll;
+          position: absolute;
+        }   
+        .viewMail-mail-cancelBtn{
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          width: 30px;
+          height: 30px;
+          background-color: white;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+        .viewMail-form {
+          position: relative;
+          top: -5px;
+          padding: 20px;
+          width: 77vw;
+          height: auto;
+        }
+        .viewMail-in {
+          width: 47vw;
+          height: 30px;
+          border-radius: 10px;
+          border: none;
+          padding: 0px 10px;
+          background: #1c2833;
+          color: #ecf0f1;
+        }
+        .viewMail-text {
+          width: 50vw;
+          height: 50vh;
+          border-radius: 10px;
+          border: none;
+          padding: 5px 10px;
+          background-color: #1c2833;
+          color: #ecf0f1;
+        }
+        .viewMail-label {
+          color: black;
+          font-weight: 600;
+          font-size: 12px;
+          width: 60px;
+        }
+  }
