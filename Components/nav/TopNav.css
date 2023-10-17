@@ -1,3 +1,13 @@
+.topNav-container{
+    width: 80vw;
+    height: 60px;
+    background-color: #242424;
+    position: fixed;
+    right: 0;
+    top: 0;
+    border-left: 1px solid #7B7D7D;
+}
+
 .search{
     width: 30vw;
     height: 33px;
@@ -9,13 +19,42 @@
 .search:focus{
     outline: none;
 }
-/* .fa-magnifying-glass{
-    position: relative;
-    top: 8px;
-    left: 10px;
-} */
 .topNav-profile{
     height: 45px;
     width: 45px;
     border-radius: 60%;
+}
+.fa-bars{
+    display: none;
+}
+
+@media screen and (max-width: 885px){
+    .topNav-container{
+        width: 100vw;
+        height: 60px;
+        background-color: #242424;
+        position: fixed;
+        right: 0;
+        top: 0;
+        border-left: 0px solid #7B7D7D;
+        transition: transform 0.3s ease-in-out;
+    }
+    .search{
+        width: 50vw;
+        height: 25px;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+    }
+    .topNav-profile{
+        height: 35px;
+        width: 35px;
+        margin-top: 10px;
+        border-radius: 60%;
+    }
+    .fa-bars{
+        display: block;
+        font-size: 20px;
+        margin-right: 13px;
+    }
 }

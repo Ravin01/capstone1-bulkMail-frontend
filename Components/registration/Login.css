@@ -7,13 +7,21 @@
 .login-con2{
     content: '';
     position: absolute;
-    height: 1286px;
-    width: 1500px;
+    height: 200vh;
+    width: 100vw;
     top: 0px;
-    right: 700px;
+    right: 52vw;
     background-image: linear-gradient(-45deg, #20dbc2 0%, #145A32 100%);
     transform: translateY(-50%);
     border-radius: 50%;
+    box-shadow: 0 0 1px #fff,
+    0 0 4px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 52px #0fa,
+    0 0 25px #0fa;
 }
 .login-form{
     display: flex;
@@ -52,6 +60,7 @@
     background-color: #20dbc2;
     border: none;
     font-weight: 700;
+    cursor: pointer;
 }
 .login-regis{
     width: 30vw;
@@ -72,4 +81,131 @@
     border: none;
     font-weight: 700;
     color: #145A32;
+}
+.login-btn-regis{
+    position: relative;
+    left: -1vw;
+}
+
+
+@media screen and (max-width : 888px){
+    .login-con2{
+        content: '';
+        position: absolute;
+        height: 200vh;
+        width: 130vw;
+        top: 0px;
+        right: 40vw;
+        background-image: linear-gradient(-45deg, #20dbc2 0%, #145A32 100%);
+        transform: translateY(-60%);
+        border-radius: 50%;
+    }
+    .login-btn-regis{
+        position: relative;
+        left: -3vw;
+    }
+}
+
+@media screen and (max-width:785px) {
+    .login-con2{
+        content: '';
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0px;
+        right: 25vw;
+        background-image: linear-gradient(-45deg, #20dbc2 0%, #145A32 100%);
+        transform: translateY(-60%);
+        border-radius: 50%;
+    }
+    .login-center{
+        position: absolute;
+        right: 15vw;
+        bottom: 10vh;
+    }
+    .login-regis{
+        width: 50vw;
+        position: absolute;
+        top: 5vh;
+        left: 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        color: #17202A;
+    }
+}
+
+@media screen and (max-width : 650px) {
+    .login-con2{
+        content: '';
+        position: absolute;
+        height: 120vh;
+        width: 150vw;
+        top: 0px;
+        right: 15vw;
+        background-image: linear-gradient(-45deg, #20dbc2 0%, #145A32 100%);
+        transform: translateY(-60%);
+        border-radius: 50%;
+    }
+    .login-btn-regis{
+        position: relative;
+        left: -5vw;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .login-con2{
+        content: '';
+        position: absolute;
+        height: 98vh;
+        width: 283vw;
+        top: 0px;
+        right: 0vw;
+        background-image: linear-gradient(-45deg, #20dbc2 0%, #145A32 100%);
+        transform: translateY(-50%);
+        border-radius: 50%;
+    }
+    .login-center{
+        position: absolute;
+        right: 15vw;
+        bottom: 10vh;
+    }
+    .login-regis{
+        width: 80vw;
+        position: absolute;
+        top: 5vh;
+        left: 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        color: #17202A;
+    }
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+        justify-content: center;
+        align-items: center;
+        width: 70vw;
+    }
+    .login-regis h2{
+        font-size: 21px;
+        font-weight: bold;
+    }
+    .login-regis p{
+        font-size: 16px;
+    }
+    .login-con2-p{
+        position: relative;
+        left: -13vw;
+    }
+    .login-btn-regis{
+        position: relative;
+        left: -25vw;
+    }
+    .login-form-link{
+        font-size: 14px;
+    }
 }

@@ -5,3 +5,11 @@
 td, tbody, thead{
     overflow-x: hidden;
 }
+/* .mails-table-subject{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30vw;
+} */
+.mails-table-action{
+    text-align: center;
+}

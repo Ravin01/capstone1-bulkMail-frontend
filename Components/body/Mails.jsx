@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { backEndUrl } from "../../config"
 import './Mails.css'
-import ViewMail from "./ViewMail"
+// import ViewMail from "./ViewMail"
 
 const Mails = () => {
   const [mails, setMails] = useState([])
@@ -28,10 +28,9 @@ const handleViewMail = async(mailId)=>{
         <table className="mails-table">
           <thead className="mails-table-header">
             <th>S.No</th>
-            <th>to</th>
-            <th>subject</th>
-            <th>body</th>
-            <th>time</th>
+            <th>To</th>
+            <th>Subject</th>
+            <th className="mails-table-action">Actions</th>
           </thead>
           <tbody className="mails-table-body">
             {mails.map((d,i)=>(
@@ -39,14 +38,17 @@ const handleViewMail = async(mailId)=>{
                 <td>{i+1}</td>
                 <td>{d.to}</td>
                 <td>{d.subject}</td>
-                <td>{d.text}</td>
-                <td>{d.time}</td>
+                <td>
+                  <button>View</button>
+                  <button>Add to Important</button>
+                  <button>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
         {/* <p>{singleMail}</p> */}
-        <ViewMail singleMail = {singleMail} />
+        {/* <ViewMail singleMail = {singleMail} /> */}
       </div>
     </div>
   )

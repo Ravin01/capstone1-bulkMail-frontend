@@ -60,3 +60,42 @@
     width: 280px;
     text-align: center;
 }
+
+@media screen and (max-width : 460px) {
+    .forgot-form{
+    height: 300px;
+    width: 300px;
+    }
+    .forgot-form h2{
+        font-size: 20px;
+    }
+    .forgot-head{
+        font-size: 23px;
+        padding-bottom: 20px;
+    }
+    .forgot-para{
+        font-size: 13px;
+        text-align: center;
+        margin: 20px 0px 0px 0px;
+    }
+    .forgot-in{
+        width: 240px;
+        height: 40px;
+        border-radius: 18px;
+        padding: 12px;
+        background: #D0D3D4;
+        font-weight: 700;
+    }
+    .forgot-btn{
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background-color: #20dbc2;
+        border: none;
+        font-weight: 700;
+    }
+    .forgot-hold{
+        font-size: 13px;
+    }
+
+}

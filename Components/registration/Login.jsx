@@ -116,7 +116,7 @@ export const Login = () => {
             placeholder="Password"
           />
           <br />
-          <p>Forgot Password ? <Link to={"/forgot"} style={{
+          <p className="login-form-link">Forgot Password ? <Link to={"/forgot"} style={{
             textDecoration : 'none',
             color : '#20dbc2',
             fontSize : '15px'
@@ -131,7 +131,7 @@ export const Login = () => {
          <br />
          <p>This is a Mail System, Here you can send mails to anyone either a single mail or also Bulk mail</p>
           <br />
-          <p>Not yet Registered ? </p>
+          <p className="login-con2-p">Not yet Registered ? </p>
           <br />
           <button className="login-btn-regis"><Link to={"/register"} style={{
             textDecoration : 'none',

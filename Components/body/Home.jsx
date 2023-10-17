@@ -17,6 +17,17 @@ export const Home = () => {
       setMailBox(true)
     }
   };
+
+  // Nav
+  const [nav, setNav] = useState('sideNav-container')
+  const openNav = ()=>{
+    if(nav === 'sideNav-container-res'){
+      setNav('sideNav-container')
+    }else{
+      setNav('sideNav-container-res')
+    }
+  }
+
   return (
     <>
       <div
@@ -24,15 +35,15 @@ export const Home = () => {
           display: "flex",
           height : '100vh',
           width : '100vw',
-          backgroundColor : 'black',
-          color : '#D0D3D4'
+          color : '#242424',
+          backgroundColor : '#ECF0F1'
         }}
       >
         <div>
-          <SideNav />
+        <TopNav openNav={openNav} nav={nav} />
         </div>
         <div>
-          <TopNav />
+        <SideNav nav={nav} closeNav={openNav} />
           <div
             style={{
               margin: "80px 0px 0px 300px",
@@ -40,13 +51,7 @@ export const Home = () => {
           >
             <Mails />
           </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "60px",
-              bottom: "70px",
-            }}
-          >
+          <div className="home-mail-send">
             <div onClick={handleMailBox} className="home-send-btn">
             <p className="">
               Send

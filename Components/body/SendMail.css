@@ -1,126 +1,286 @@
-.sendMail-container{
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(0, 0, 0,0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 500;
+.sendMail-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.sendMail-con2{
+.sendMail-con2 {
+  height: 78vh;
+  width: 60vw;
+  background-color: #ecf0f1;
+  border-radius: 15px;
+  box-shadow: #1d8348 0px 3px 8px;
+}
+.sendMail-content {
+  overflow-y: scroll;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sendMail-content::-webkit-scrollbar {
+  display: none;
+}
+.sendMail-form {
+  padding: 0px 20px 20px 20px;
+  width: 36vw;
+}
+.home-cancel-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  font-weight: 800;
+}
+.sendMail-label {
+  color: black;
+  font-weight: 600;
+}
+.sendMail-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+.sendMail-div-text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.sendMail-in {
+  width: 23vw;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 0px 10px;
+  background: #1c2833;
+  color: #ecf0f1;
+}
+.sendMail-in:focus,
+.sendMail-text:focus {
+  outline: none;
+}
+.sendMail-in::placeholder {
+  color: #ecf0f1;
+  opacity: 0.7;
+}
+.sendMail-text::placeholder {
+  color: #ecf0f1;
+  opacity: 0.7;
+}
+.sendMail-text {
+  width: 23vw;
+  height: 250px;
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  background-color: #1c2833;
+  color: #ecf0f1;
+}
+.sendMail-btn {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: none;
+  background-color: #17202a;
+  color: #ecf0f1;
+  font-weight: 700;
+}
+.chip-container-home {
+  margin: 0px 30px 75px 0px;
+}
+.chip-container {
+  width: 20vw;
+  height: 350px;
+  background-color: #1c2833;
+  border-radius: 12px;
+  color: #ecf0f1;
+  padding: 15px;
+  font-size: 12px;
+  overflow-y: scroll;
+}
+.chip-align {
+  padding: 0px 5px 5px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.chip-container::-webkit-scrollbar {
+  display: none;
+}
+.chip {
+  margin: 2px 0px;
+}
+.cancelEmail-btn {
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 0px 5px;
+  background-color: red;
+  border: none;
+}
+.sendMail-writeText {
+  margin: 20px;
+}
+.sendMail-con2::-webkit-scrollbar{
+    display: none;
+}
+.home-mail-cancelBtn{
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 950px) {
+  .sendMail-con2 {
     height: 78vh;
     width: 60vw;
-    background-color: #ECF0F1;
-    position: relative;
-    left: 22vw;
-    top: 9vh;
+    background-color: #ecf0f1;
     border-radius: 15px;
-    box-shadow: #1D8348 0px 3px 8px;
+    box-shadow: #1d8348 0px 3px 8px;
     overflow-y: scroll;
-    display: flex;
-    justify-content: space-between;
-}
-.sendMail-con2::-webkit-scrollbar {
-    display: none;
+    position: absolute;
   }
-.sendMail-form{
+  .sendMail-form {
+    position: relative;
+    top: 150px;
     padding: 20px;
-    width: 500px;
+    width: 55vw;
     height: auto;
-}
-.home-cancel-btn{
-    background: transparent;
-    border: none;
-    font-size: 16px;
-    color: black;
-    cursor: pointer;
-    font-weight: 800;
-}
-.sendMail-label{
-    color: black;
-    font-weight: 600;
-}
-.sendMail-div{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0px;
-}
-.sendMail-div-text{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0px;
-}
-.sendMail-in{
-    width: 320px;
+  }
+  .sendMail-content {
+    overflow-y: scroll;
+    display: block;
+  }
+  .chip-container-home {
+    margin: 0px 30px 75px 0px;
+    position: relative;
+    right: -23px;
+    top: -464px;
+    width: 49vw;
+  }
+  .chip-container {
+    width: 50vw;
+    height: 150px;
+    background-color: #1c2833;
+    border-radius: 12px;
+    color: #ecf0f1;
+    padding: 15px;
+    font-size: 12px;
+    overflow-y: scroll;
+  }
+  .sendMail-in {
+    width: 36vw;
     height: 30px;
     border-radius: 10px;
     border: none;
     padding: 0px 10px;
-    background: #1C2833;
-    color: #ECF0F1;
-}
-.sendMail-in:focus, .sendMail-text:focus{
-    outline: none;
-}
-.sendMail-in::placeholder{
-    color: #ECF0F1;
-    opacity: 0.7;
-}
-.sendMail-text::placeholder{
-    color: #ECF0F1;
-    opacity: 0.7;
-}
-.sendMail-text{
-    width: 320px;
+    background: #1c2833;
+    color: #ecf0f1;
+  }
+  .sendMail-text {
+    width: 36vw;
     height: 250px;
     border-radius: 10px;
     border: none;
     padding: 5px 10px;
-    background-color: #1C2833;
-    color: #ECF0F1;
-}
-.sendMail-btn{
-    padding: 10px 25px;
-    border-radius: 10px;
-    border: none;
-    background-color: #17202A;
-    color: #ECF0F1;
-    font-weight: 700;
-}
-.chip-container-home{
-    margin: 53px 30px 0px 0px;
-}
-.chip-container{
-    width: 250px;
-    height: 350px;
-    background-color: #1C2833;
-    border-radius: 12px;
-    color: #ECF0F1;
-    padding: 15px;
-    font-size: 12px;
-    overflow-y: scroll;
-}
-.chip-align{
-    padding: 0px 5px 5px 0px;
+    background-color: #1c2833;
+    color: #ecf0f1;
+  }
+  .home-mail-cancelBtn{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-size: 15px;
-    font-weight: bold;
 }
-.chip-container::-webkit-scrollbar{
-    display: none;
 }
-.chip{
-    margin: 2px 0px;
-}
-.cancelEmail-btn{
-    cursor: pointer;
-    margin-left: 5px;
-    padding: 0px 5px;
-    background-color: red;
-    border: none;
+@media screen and (max-width:480px) {
+    .sendMail-con2 {
+        height: 82vh;
+        width: 80vw;
+        background-color: #ecf0f1;
+        border-radius: 15px;
+        box-shadow: #1d8348 0px 3px 8px;
+        overflow-y: scroll;
+        position: absolute;
+      }   
+      .home-mail-cancelBtn{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .chip-container {
+        width: 66vw;
+        height: 100px;
+        background-color: #1c2833;
+        border-radius: 12px;
+        color: #ecf0f1;
+        padding: 15px;
+        font-size: 12px;
+        overflow-y: scroll;
+      }
+      .chip-container-home {
+        margin: 0px 30px 75px 0px;
+        position: relative;
+        right: -23px;
+        top: -410px;
+        width: 66vw;
+      }
+      .sendMail-form {
+        position: relative;
+        top: 110px;
+        padding: 20px;
+        width: 77vw;
+        height: auto;
+      }
+      .sendMail-in {
+        width: 47vw;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        padding: 0px 10px;
+        background: #1c2833;
+        color: #ecf0f1;
+      }
+      .sendMail-text {
+        width: 47vw;
+        height: 200px;
+        border-radius: 10px;
+        border: none;
+        padding: 5px 10px;
+        background-color: #1c2833;
+        color: #ecf0f1;
+      }
+      .sendMail-label {
+        color: black;
+        font-weight: 600;
+        font-size: 13px;
+      }
 }
