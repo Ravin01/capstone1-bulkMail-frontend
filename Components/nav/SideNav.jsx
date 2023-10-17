@@ -10,12 +10,7 @@ export const SideNav = ({nav, closeNav}) => {
   const [logout, setLogout] = useState(false);
   const handleLogout = () => {
     sessionStorage.removeItem("user");
-    const state = confirm("are you want to logout, Don't go");
-    if (state) {
-      setLogout(true);
-    } else {
-      setLogout(false);
-    }
+    setLogout(true)
   };
 
 // close Nav
