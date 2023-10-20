@@ -2,22 +2,25 @@ import { useEffect, useState } from "react"
 import { backEndUrl } from "../../config"
 import './Mails.css'
 import ViewMail from "./ViewMail"
-// import ViewMail from "./ViewMail"
 
 const Mails = () => {
   const [mails, setMails] = useState([])
   const [singleMail, setSingleMail] = useState('')
   const [viewMail, setViewMail] = useState(false)
 
+  const {accessToken} = JSON.parse(sessionStorage.getItem('user'))
+
   const getMails = async()=>{
-    const response = await fetch(`${backEndUrl}/sendMail`)
+    const {accessToken} = JSON.parse(sessionStorage.getItem('user'))
+    const response = await fetch(`${backEndUrl}/sendMail`,{
+      headers:{
+        'auth-token' : accessToken
+      }
+    })
     const allMails = await response.json()
     const reverseMails = allMails.reverse()
     setMails(reverseMails)
   }
-// const handleViewMail = async(mailId)=>{
-  
-// }
 
 const handleCancelViewMail = () => {
   if (viewMail === true) {
@@ -27,15 +30,21 @@ const handleCancelViewMail = () => {
   }
 };
 const handleOpenView = async(mailId)=>{
-  const response = await fetch(`${backEndUrl}/sendMail/${mailId}`)
+  const response = await fetch(`${backEndUrl}/sendMail/${mailId}`,{
+    headers:{
+      'auth-token' : accessToken
+    }
+  })
   const mail = await response.json()
   setSingleMail(mail)
   setViewMail(true)
 }
-
+useEffect(()=>{
+  handleOpenView()
+// eslint-disable-next-line react-hooks/exhaustive-deps
+},[])
   useEffect(()=>{
     getMails()
-    handleOpenView()
   },[mails])
 
   return (
@@ -43,12 +52,6 @@ const handleOpenView = async(mailId)=>{
       <h3 className="mails-head-logo">All Mails</h3>
       <div>
         <table className="mails-table">
-          {/* <thead className="mails-table-header">
-            <th className="mails-table-sn">No</th>
-            <th className="mails-table-to">To</th>
-            <th className="mails-table-subject" >Subject</th>
-            <th className="mails-table-action">Actions</th>
-          </thead> */}
           <div className="mails-table-body">
           <tbody >
             {mails.map((d,i)=>(
@@ -70,7 +73,6 @@ const handleOpenView = async(mailId)=>{
           </div>
           
         </table>
-        {/* <p>{singleMail}</p> */}
         {viewMail && <ViewMail singleMail = {singleMail} cancelView={handleCancelViewMail} />}
       </div>
     </div>

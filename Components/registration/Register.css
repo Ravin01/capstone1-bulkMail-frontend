@@ -43,11 +43,17 @@
     padding: 12px;
     background: #D0D3D4;
     font-weight: 700;
+    color: black;
 }
-.regis-in:focus{
+.regis-icon{
+    width: 250px;
+    height: 18px;
+    border: none;
+    font-weight: 700;
+    background-color: transparent;
+}
+.regis-icon:focus{
     outline: none;
-    border: 3px solid #145A32;
-    box-shadow: 5px 5px 15px #145A32;
 }
 .regis-head{
     margin-bottom: 20px;
@@ -82,6 +88,20 @@
     font-weight: 700;
     color: #145A32;
 }
+.sendMail-sending{
+    height: 35px;
+    width: 115px;
+    border-radius: 10px;
+    background-color: #0fa;
+    color: black;
+    position: absolute;
+    top: 14px;
+    right: 45vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media screen and (max-width : 888px){
     .login-con2{
@@ -125,6 +145,19 @@
         align-items: left;
         color: #17202A;
     }
+    .sendMail-sending{
+        height: 35px;
+        width: 115px;
+        border-radius: 10px;
+        background-color: #0fa;
+        color: black;
+        position: absolute;
+        top: 14px;
+        right: 42vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width : 650px) {
@@ -143,6 +176,19 @@
         margin-bottom: 0px;
         font-size: 20px;
         letter-spacing: 2px;
+    }
+    .sendMail-sending{
+        height: 35px;
+        width: 115px;
+        border-radius: 10px;
+        background-color: #0fa;
+        color: black;
+        position: absolute;
+        top: 14px;
+        right: 39vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -199,5 +245,18 @@
     }
     .regis-form-link{
         font-size: 14px;
+    }
+    .sendMail-sending{
+        height: 35px;
+        width: 115px;
+        border-radius: 10px;
+        background-color: #0fa;
+        color: black;
+        position: absolute;
+        top: 14px;
+        right: 34vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

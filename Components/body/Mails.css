@@ -50,6 +50,7 @@ td{
     font-weight: 600;
     margin: 0px 5px 0px 0px;
     font-size: 11px;
+    cursor: pointer;
 }
 .mails-importBtn{
     padding: 5px 10px;
@@ -59,6 +60,7 @@ td{
     color: #ecf0f1;
     font-weight: 600;
     font-size: 11px;
+    cursor: pointer;
 }
 .mails-head-logo{
     font-size: 25px;

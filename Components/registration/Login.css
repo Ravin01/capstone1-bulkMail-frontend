@@ -42,12 +42,9 @@
     padding: 12px;
     background: #D0D3D4;
     font-weight: 700;
+    color: black;
 }
-.login-in:focus{
-    outline: none;
-    border: 3px solid #145A32;
-    box-shadow: 5px 5px 15px #145A32;
-}
+
 .login-head{
     margin-bottom: 20px;
     font-size: 20px;
@@ -87,6 +84,16 @@
     left: -1vw;
 }
 
+.login-icon{
+    width: 250px;
+    height: 18px;
+    border: none;
+    font-weight: 700;
+    background-color: transparent;
+}
+.login-icon:focus{
+    outline: none;
+}
 
 @media screen and (max-width : 888px){
     .login-con2{

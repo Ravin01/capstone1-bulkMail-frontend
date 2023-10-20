@@ -7,7 +7,6 @@ import "./SendMail.css";
 
 const SendMail = ({ cancelBtn }) => {
   const [data, setData] = useState({
-    from: "ravinganapathi@gmail.com",
     to: "",
     subject: "",
     text: "",
@@ -22,14 +21,18 @@ const SendMail = ({ cancelBtn }) => {
       [name]: value,
     });
   };
+  const [sending, setSending] = useState(false)
+  const {accessToken} = JSON.parse(sessionStorage.getItem('user'))
   const handleSubmit = async (ele) => {
     ele.preventDefault();
+    setSending(true)
     console.log({ ...data, to: emails });
     const newMail = await fetch(`${backEndUrl}/sendMail`, {
       method: "POST",
       body: JSON.stringify({ ...data, to: emails }),
       headers: {
         "Content-Type": "application/json",
+        'auth-token' : accessToken
       },
     });
 
@@ -40,6 +43,7 @@ const SendMail = ({ cancelBtn }) => {
         text: "",
       });
       setEmails([]);
+      setSending(false)
       toast.success(`${count} email successfully`, {
         position: "top-right",
         autoClose: 5000,
@@ -51,7 +55,8 @@ const SendMail = ({ cancelBtn }) => {
         theme: "dark",
       });
     } else {
-      toast.error("Not sent, Refresh and Try again", {
+      setSending(false)
+      toast.error("Not sent, Check your connection", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -176,6 +181,9 @@ const SendMail = ({ cancelBtn }) => {
         pauseOnHover
         theme="dark"
       />
+      {sending && <div className="sendMail-sending">
+        <h5>Sending {count} ...</h5>
+      </div>}
     </div>
   );
 };

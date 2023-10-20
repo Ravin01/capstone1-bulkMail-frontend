@@ -12,6 +12,17 @@ function Register() {
     userEmail: "",
     password: "",
   });
+  const [text, setText] = useState('password')
+  const [eye,setEye] = useState('fa-solid fa-eye-slash')
+  const handlePassword = ()=>{
+    if(text === 'password'){
+      setText('text')
+      setEye('fa-solid fa-eye')
+    }else{
+      setText('password')
+      setEye('fa-solid fa-eye-slash')
+    }
+  }
   const handleChange = (ele) => {
     const { name, value } = ele.target;
     setData({
@@ -28,6 +39,7 @@ function Register() {
         "Content-Type": "application/json",
       },
     });
+    const userData = await newUser.json()
     if (newUser.status === 409) {
       toast.error('Already exists', {
         position: "top-right",
@@ -50,7 +62,7 @@ function Register() {
         progress: undefined,
         theme: "dark",
         });
-      sessionStorage.setItem("user", JSON.stringify(newUser));
+      sessionStorage.setItem("user", JSON.stringify(userData));
       setRegister(true);
     }
 
@@ -83,6 +95,10 @@ function Register() {
           <h3 className="regis-head">Registration</h3>
           <br />
           <br />
+          <div className="regis-in" style={{
+            display : 'flex',
+            justifyContent : 'space-between'
+          }}>
           <input
             type="text"
             name="userName"
@@ -91,10 +107,16 @@ function Register() {
             onChange={handleChange}
             required
             placeholder="Name"
-            className="regis-in"
+            className="regis-icon"
           />
+          <i className="fa-solid fa-user"></i>
+          </div>
           <br />
           <br />
+          <div className="regis-in" style={{
+            display : 'flex',
+            justifyContent : 'space-between'
+          }}>
           <input
             type="text"
             name="userEmail"
@@ -103,20 +125,30 @@ function Register() {
             onChange={handleChange}
             required
             placeholder="Email"
-            className="regis-in"
+            className="regis-icon"
           />
+          <i className="fa-solid fa-envelope"></i>
+          </div>
           <br />
           <br />
+          <div className="regis-in" style={{
+            display : 'flex',
+            justifyContent : 'space-between'
+          }}>
           <input
-            type="password"
+            type={text}
             name="password"
             id="password"
             value={data.password}
             onChange={handleChange}
             required
             placeholder="Password"
-            className="regis-in"
+            className="regis-icon"
           />
+          <span className={eye} onClick={handlePassword} style={{
+            cursor : 'pointer'
+          }}></span>
+          </div>
           <br />
           <br />
           <button type="submit" className="regis-submit">
