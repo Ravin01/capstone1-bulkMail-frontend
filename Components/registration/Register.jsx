@@ -53,7 +53,7 @@ function Register() {
         theme: "dark",
         });
     } else {
-      toast.error('user created successfully', {
+      toast.success('user created successfully', {
         position: "top-right",
         autoClose: 2500,
         hideProgressBar: false,
@@ -69,8 +69,6 @@ function Register() {
       sessionStorage.setItem("user", JSON.stringify(userData));
       setRegister(true);
     }
-
-    console.log(data);
     setData({
       userName: "",
       userEmail: "",
