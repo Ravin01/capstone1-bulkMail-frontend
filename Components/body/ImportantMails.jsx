@@ -1,12 +1,12 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { backEndUrl } from "../../config";
-import "./Mails.css";
+// import "./Mails.css";
 import ViewMail from "./ViewMail";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import './ImportantMails.css'
 
-const Mails = () => {
+const ImportantMails = () => {
   const [mails, setMails] = useState([]);
   const [singleMail, setSingleMail] = useState("");
   const [viewMail, setViewMail] = useState(false);
@@ -15,7 +15,7 @@ const Mails = () => {
 
   const getMails = async () => {
     const { accessToken } = JSON.parse(sessionStorage.getItem("user"));
-    const response = await fetch(`${backEndUrl}/mails`, {
+    const response = await fetch(`${backEndUrl}/importantMails`, {
       headers: {
         "auth-token": accessToken,
       },
@@ -33,35 +33,24 @@ const Mails = () => {
     }
   };
   const handleOpenView = async (mailId) => {
-    const response = await fetch(`${backEndUrl}/mails/${mailId}`, {
+    const response = await fetch(`${backEndUrl}/importantMails/${mailId}`, {
       headers: {
         "auth-token": accessToken,
       },
     });
     const mail = await response.json();
-    console.log(mail);
     setSingleMail(mail);
     setViewMail(true);
   };
-
-  const handleAddImportant = async (mailId) => {
-    console.log(mailId);
-    const response = await fetch(`${backEndUrl}/mails/${mailId}`, {
+  const handleRemoveMail = async (mailId) => {
+    const remove = await fetch(`${backEndUrl}/importantMails/${mailId}`, {
+      method: "DELETE",
       headers: {
         "auth-token": accessToken,
       },
     });
-    const mail = await response.json();
-    const add = await fetch(`${backEndUrl}/importantMails`, {
-      method: "POST",
-      body: JSON.stringify({ ...mail, mailId: mailId }),
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": accessToken,
-      },
-    });
-    if (add.status === 402) {
-      toast.error("Already Added", {
+    if (remove) {
+      toast.success(`Removed successfully`, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -72,7 +61,7 @@ const Mails = () => {
         theme: "dark",
       });
     } else {
-      toast.success(`Added successfully`, {
+      toast.error("Error", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -94,36 +83,36 @@ const Mails = () => {
 
   return (
     <div>
-      <h3 className="mails-head-logo">All Mails</h3>
+      <h3 className="imMails-head-logo">Important Mails</h3>
       <div>
-        <table className="mails-table">
-          <div className="mails-table-body">
+        <table className="imMails-table">
+          <div className="imMails-table-body">
             <tbody>
               {mails.map((d, i) => (
                 <tr
                   key={i}
-                  className="mails-table-mail"
+                  className="imMails-table-mail"
                   style={{
                     overflow: "scroll",
                   }}
                 >
                   <div>
-                    <td className="mails-table-sn">{i + 1}</td>
-                    <td className="mails-table-to">{d.to}</td>
-                    <td className="mails-table-subject">{d.subject}</td>
+                    <td className="imMails-table-sn">{i + 1}</td>
+                    <td className="imMails-table-to">{d.to}</td>
+                    <td className="imMails-table-subject">{d.subject}</td>
                   </div>
-                  <td className="mails-table-action">
+                  <td className="imMails-table-action">
                     <button
                       onClick={() => handleOpenView(d.mailId)}
-                      className="mails-viewBtn"
+                      className="imMails-viewBtn"
                     >
                       Explore
                     </button>
                     <button
-                      className="mails-importBtn"
-                      onClick={() => handleAddImportant(d.mailId)}
+                      className="imMails-importBtn"
+                      onClick={() => handleRemoveMail(d.mailId)}
                     >
-                      Add to Important
+                      Remove
                     </button>
                   </td>
                 </tr>
@@ -132,7 +121,7 @@ const Mails = () => {
           </div>
           <ToastContainer
             position="top-right"
-            autoClose={5000}
+            autoClose={3000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
@@ -151,4 +140,4 @@ const Mails = () => {
   );
 };
 
-export default Mails;
+export default ImportantMails;

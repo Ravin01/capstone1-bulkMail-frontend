@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./SideNav.css";
 
 export const SideNav = ({nav, closeNav}) => {
@@ -33,11 +33,11 @@ const handleCancelSideNav = () =>{
         </div>
         <div className="sideNav-con">
           <div className="sideNav-icon">
-            <h4>Inbox</h4>
+            <h4><Link to='/mail' className="sideNav-link">Inbox</Link></h4>
             <i className="fa-solid fa-envelope "></i>
           </div>
           <div className="sideNav-icon">
-            <h4>Important </h4>
+          <h4><Link to='/important' className="sideNav-link">Important</Link></h4>
             <i className="fa-solid fa-star"></i>
           </div>
         </div>

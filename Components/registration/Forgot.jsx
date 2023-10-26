@@ -58,7 +58,7 @@ export const Forgot = () => {
   };
   
   return (
-    <div className="forgot-container">
+<div className="forgot-container">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -99,8 +99,12 @@ export const Forgot = () => {
         </button>
       </form>
       {hold && (
-        <p className="forgot-hold">Hold tight, we are sending email to you</p>
+        <div className="forgot-hold">
+          <div className="forgot-loading"></div>
+            <p className="forgot-hold-p">Sending ...</p>
+        </div>
       )}
     </div>
+    
   );
 };

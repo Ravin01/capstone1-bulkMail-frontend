@@ -26,8 +26,7 @@ const SendMail = ({ cancelBtn }) => {
   const handleSubmit = async (ele) => {
     ele.preventDefault();
     setSending(true)
-    console.log({ ...data, to: emails });
-    const newMail = await fetch(`${backEndUrl}/sendMail`, {
+    const newMail = await fetch(`${backEndUrl}/mails`, {
       method: "POST",
       body: JSON.stringify({ ...data, to: emails }),
       headers: {
@@ -35,6 +34,7 @@ const SendMail = ({ cancelBtn }) => {
         'auth-token' : accessToken
       },
     });
+
 
     if (newMail.status === 200) {
       setData({
@@ -46,7 +46,7 @@ const SendMail = ({ cancelBtn }) => {
       setSending(false)
       toast.success(`${count} email successfully`, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -58,7 +58,7 @@ const SendMail = ({ cancelBtn }) => {
       setSending(false)
       toast.error("Not sent, Check your connection", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -182,6 +182,7 @@ const SendMail = ({ cancelBtn }) => {
         theme="dark"
       />
       {sending && <div className="sendMail-sending">
+        <div className="preload-sendMail"></div>
         <h5>Sending {count} ...</h5>
       </div>}
     </div>

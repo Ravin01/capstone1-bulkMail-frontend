@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SideNav } from "../nav/SideNav";
 import { TopNav } from "../nav/TopNav";
 import Mails from "./Mails";
 import SendMail from "./SendMail";
 import "./Home.css";
+import { Route, Routes } from "react-router-dom";
+import ImportantMails from "./ImportantMails";
+import Preloader from "./preloader/Preloader";
 
 export const Home = () => {
   const [mailBox, setMailBox] = useState(false);
+  const [loading, setLoading] = useState(true);
   const handleMailBox = () => {
     setMailBox(true);
   };
@@ -27,10 +31,15 @@ export const Home = () => {
       setNav("sideNav-container-res");
     }
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500); 
+  }, []);
 
   return (
     <>
-      <div
+      {loading ? <Preloader /> : <div
         style={{
           display: "flex",
           height: "100vh",
@@ -45,7 +54,11 @@ export const Home = () => {
         <div>
           <SideNav nav={nav} closeNav={openNav} />
           <div className="home-main-container">
-            <Mails />
+            {/* Routes fro Mails and Important Mails */}
+            <Routes>
+            <Route path="/mail" element={<Mails />} />
+            <Route path="/important" element={<ImportantMails />} />
+            </Routes>
           </div>
           <div className="home-mail-send">
             <div onClick={handleMailBox} className="home-send-btn">
@@ -54,11 +67,9 @@ export const Home = () => {
             </div>
           </div>
         </div>
+        {mailBox && <SendMail cancelBtn={handleCancelBtn} />}
       </div>
-      {/* {mailBox && (
-        
-      )} */}
-      {mailBox && <SendMail cancelBtn={handleCancelBtn} />}
+      }
     </>
   );
 };

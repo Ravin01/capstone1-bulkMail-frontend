@@ -1,7 +1,7 @@
 .topNav-container{
     width: 80vw;
     height: 60px;
-    background-color: #242424;
+    background-color: #011818;
     position: fixed;
     right: 0;
     top: 0;
@@ -20,8 +20,8 @@
     outline: none;
 }
 .topNav-profile{
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
     border-radius: 60%;
 }
 .fa-bars{

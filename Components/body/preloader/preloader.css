@@ -1,0 +1,46 @@
+.preloader-container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #011818;
+  flex-direction: column;
+}
+.preloader-mail{
+  color: #fff;
+  margin-bottom: 10vw;
+}
+.loader{
+  display: block;
+  position: relative;
+  height: 12px;
+  width: 60%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.loader:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: #fff;
+  animation: 2.5s prog ease-in;
+}
+
+@keyframes prog {
+  to  {   width: 100%;}
+}
+
+@media screen and (max-width:480px) {
+  .preloader-mail{
+    font-size: 22px;
+    margin-bottom: 20vw;
+  }
+  .loader{
+    width: 80%;
+  }
+}

@@ -4,7 +4,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    background-color: #242424;
+    background-color: #011818;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -24,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 .logout-btn{
     font-weight: 700;
@@ -62,6 +63,10 @@
         left: 0;
         width: 35vw;
         height: 100vh;
+}
+.sideNav-link{
+    text-decoration: none;
+    color: #ECF0F1;
 }
 
 @media screen and (max-width : 1050px) {

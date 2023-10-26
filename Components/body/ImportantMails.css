@@ -1,0 +1,139 @@
+.imMails-table, .imMails-table-body, .imMails-table-header{
+    width: 75vw;
+}
+.imMails-table-header{
+    display: flex;
+    text-align: left;
+}
+.imMails-table-body{
+    height: 79vh;
+    overflow: scroll;
+}
+th{
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+td{
+    font-size: 14px;
+    overflow-x: scroll;
+    /* border: 1px solid black; */
+}
+.imMails-table{
+    border-collapse: collapse;
+}
+.imMails-table-sn{
+    width: 4vw;
+    padding-top: 10px;
+}
+.imMails-table-to{
+    width: 230px;
+    padding-top: 10px;
+}
+.imMails-table-subject{
+    width: 44vw;
+    padding-top: 10px;
+}
+.imMails-table-mail{
+    height: 35px;
+}
+.imMails-table-action{
+    padding-left: 0px;
+}
+
+.imMails-viewBtn{
+    padding: 5px 10px;
+    border: none;
+    background-color: #154360;
+    border-radius: 10px;
+    color: #ecf0f1;
+    font-weight: 600;
+    margin: 0px 5px 0px 0px;
+    font-size: 11px;
+    cursor: pointer;
+}
+.imMails-importBtn{
+    padding: 5px 10px;
+    border: none;
+    background-color: #0B5345;
+    border-radius: 10px;
+    color: #ecf0f1;
+    font-weight: 600;
+    font-size: 11px;
+    cursor: pointer;
+}
+.imMails-head-logo{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+tr:nth-child(odd) {
+    background-color: #A6ACAF;
+}
+@media screen and (max-width:1150px){
+    .imMails-table-subject{
+        width: 33vw;
+    }
+}
+
+@media screen and (max-width:970px) {
+    .imMails-table-subject{
+        width: 27vw;
+    }
+}
+
+@media screen and (max-width:885px){
+    .imMails-table, .imMails-table-body, .imMails-table-mail{
+        width: 95vw;
+    }
+    .imMails-table-subject{
+        width: 35vw;
+        padding-top: 3px;
+    }
+    .imMails-table-sn, .imMails-table-to{
+        padding-top: 3px;
+    }
+    .imMails-table-mail{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 55px;
+    }
+    .imMails-table-action{
+        padding-left: 20px;
+    }
+}
+@media screen and (max-width:800px){
+    .imMails-table-subject{
+        width: 25vw;
+    }
+}
+@media screen and (max-width:700px){
+    .imMails-table-subject{
+        width: 15vw;
+    }
+}
+@media screen and (max-width:480px){
+    .imMails-table, .mails-table-body, .mails-table-mail{
+        width: 98vw;
+    }
+    .imMails-table-subject{
+        width: 20vw;
+        font-size: 13px;
+    }
+    .imMails-table-to{
+        font-size: 14px;
+    }
+    .imMails-table-mail{
+        height: 60px;
+        font-size: 8px;
+    }
+    .imMails-table-action{
+        padding-left: 15px;
+    }
+    .imMails-table-sn{
+        width: 6vw;
+    }
+    .imMails-table-body{
+        height: 80vh;
+    }
+}

@@ -58,7 +58,7 @@ const handleSubmit = async(ele) => {
     })
 }
 if(reset == true){
-  return <Navigate to={'/'} />
+  return <Navigate to={'/mail'} />
 }
   return (
     <div className="reset-container">

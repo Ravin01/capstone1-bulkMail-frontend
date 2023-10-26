@@ -8,12 +8,13 @@ import "./Register.css";
 function Register() {
   const [register, setRegister] = useState(false);
   const [data, setData] = useState({
-    userName: "",
+    userName: "", 
     userEmail: "",
     password: "",
   });
   const [text, setText] = useState('password')
   const [eye,setEye] = useState('fa-solid fa-eye-slash')
+  // const [wait,setWait] = useState(false)
   const handlePassword = ()=>{
     if(text === 'password'){
       setText('text')
@@ -54,7 +55,7 @@ function Register() {
     } else {
       toast.error('user created successfully', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -62,6 +63,9 @@ function Register() {
         progress: undefined,
         theme: "dark",
         });
+        // setTimeout(() => {
+        //   setWait(true);
+        // }, 2500); 
       sessionStorage.setItem("user", JSON.stringify(userData));
       setRegister(true);
     }
@@ -74,7 +78,7 @@ function Register() {
     });
   };
   if (register === true) {
-    return <Navigate to={"/"} replace />;
+    return <Navigate to={"/mail"} replace />;
   }
   return (
     <div className="regis-container">

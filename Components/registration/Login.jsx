@@ -12,6 +12,7 @@ export const Login = () => {
   });
   const [text, setText] = useState('password')
   const [eye,setEye] = useState('fa-solid fa-eye-slash')
+  // const [wait, setWait] = useState(true)
   const handlePassword = ()=>{
     if(text === 'password'){
       setText('text')
@@ -65,7 +66,7 @@ export const Login = () => {
     } else {
         toast.success("Login successfully", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -73,6 +74,9 @@ export const Login = () => {
           progress: undefined,
           theme: "dark",
         });
+        // setTimeout(() => {
+        //   setWait(true);
+        // }, 2500); 
         sessionStorage.setItem("user", JSON.stringify(userData));
     }
     setData({
@@ -87,11 +91,8 @@ export const Login = () => {
         sessionStorage.getItem("user") &&
         JSON.parse(sessionStorage.getItem("user"))
       ) {
-        return <Navigate to={"/"} replace />;
+        return <Navigate to={"/mail"} replace />;
       }
-    
-    
-  
   return (
     <div className="login-container">
       <ToastContainer
