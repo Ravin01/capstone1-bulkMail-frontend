@@ -14,7 +14,7 @@ function Register() {
   });
   const [text, setText] = useState('password')
   const [eye,setEye] = useState('fa-solid fa-eye-slash')
-  // const [wait,setWait] = useState(false)
+  const [wait,setWait] = useState(false)
   const handlePassword = ()=>{
     if(text === 'password'){
       setText('text')
@@ -63,9 +63,9 @@ function Register() {
         progress: undefined,
         theme: "dark",
         });
-        // setTimeout(() => {
-        //   setWait(true);
-        // }, 2500); 
+        setTimeout(() => {
+          setWait(true);
+        }, 2500); 
       sessionStorage.setItem("user", JSON.stringify(userData));
       setRegister(true);
     }
@@ -77,7 +77,7 @@ function Register() {
       password: "",
     });
   };
-  if (register === true) {
+  if (register === true && wait) {
     return <Navigate to={"/mail"} replace />;
   }
   return (

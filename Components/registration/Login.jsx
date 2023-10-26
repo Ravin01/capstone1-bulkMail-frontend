@@ -12,7 +12,7 @@ export const Login = () => {
   });
   const [text, setText] = useState('password')
   const [eye,setEye] = useState('fa-solid fa-eye-slash')
-  // const [wait, setWait] = useState(true)
+  const [wait, setWait] = useState(false)
   const handlePassword = ()=>{
     if(text === 'password'){
       setText('text')
@@ -74,9 +74,9 @@ export const Login = () => {
           progress: undefined,
           theme: "dark",
         });
-        // setTimeout(() => {
-        //   setWait(true);
-        // }, 2500); 
+        setTimeout(() => {
+          setWait(true);
+        }, 2500); 
         sessionStorage.setItem("user", JSON.stringify(userData));
     }
     setData({
@@ -89,7 +89,7 @@ export const Login = () => {
     }
       if (
         sessionStorage.getItem("user") &&
-        JSON.parse(sessionStorage.getItem("user"))
+        JSON.parse(sessionStorage.getItem("user")) && wait
       ) {
         return <Navigate to={"/mail"} replace />;
       }
