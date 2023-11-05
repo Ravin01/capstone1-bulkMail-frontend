@@ -2,10 +2,15 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import "./SideNav.css";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+
 
 export const SideNav = ({nav, closeNav}) => {
 
-  
+  const count = useSelector((state) => state.mailCounts);
+
+  const importantCount = useSelector((state)=> state.importantCount);
+
   // logout
   const [logout, setLogout] = useState(false);
   const handleLogout = () => {
@@ -33,12 +38,18 @@ const handleCancelSideNav = () =>{
         </div>
         <div className="sideNav-con">
           <div className="sideNav-icon">
-            <h4><Link to='/mail' className="sideNav-link">Inbox</Link></h4>
-            <i className="fa-solid fa-envelope "></i>
+            <h4><Link to='/mail' className="sideNav-link">Inbox : </Link></h4>
+            <div className="sideNav-count">
+            {count}
+            <i className="fa-solid fa-envelope"></i>
+            </div>
           </div>
           <div className="sideNav-icon">
           <h4><Link to='/important' className="sideNav-link">Important</Link></h4>
+          <div className="sideNav-count">
+            {importantCount}
             <i className="fa-solid fa-star"></i>
+          </div>
           </div>
         </div>
       </div>

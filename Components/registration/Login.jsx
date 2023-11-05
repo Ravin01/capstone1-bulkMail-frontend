@@ -12,7 +12,7 @@ export const Login = () => {
   });
   const [text, setText] = useState('password')
   const [eye,setEye] = useState('fa-solid fa-eye-slash')
-  const [wait, setWait] = useState(false)
+  // const [wait, setWait] = useState(false)
   const handlePassword = ()=>{
     if(text === 'password'){
       setText('text')
@@ -41,8 +41,7 @@ export const Login = () => {
     });
     const userData = await newUser.json()
     if (newUser.status === 401) {
-      // alert('invalid ')
-      toast.error('Invalid Password', {
+        toast.error('Invalid Password', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -64,19 +63,19 @@ export const Login = () => {
         theme: "dark",
         });
     } else {
-        toast.success("Login successfully", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        setTimeout(() => {
-          setWait(true);
-        }, 2500); 
+        // toast.success("Login successfully", {
+        //   position: "top-right",
+        //   autoClose: 2500,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "dark",
+        // });
+        // setTimeout(() => {
+        //   setWait(true);
+        // }, 2500); 
         sessionStorage.setItem("user", JSON.stringify(userData));
     }
     setData({
@@ -89,7 +88,7 @@ export const Login = () => {
     }
       if (
         sessionStorage.getItem("user") &&
-        JSON.parse(sessionStorage.getItem("user")) && wait
+        JSON.parse(sessionStorage.getItem("user"))
       ) {
         return <Navigate to={"/mail"} replace />;
       }
@@ -151,7 +150,7 @@ export const Login = () => {
           <br />
           <p className="login-form-link">Forgot Password ? <Link to={"/forgot"} style={{
             textDecoration : 'none',
-            color : '#20dbc2',
+            color : '#2ECC71',
             fontSize : '15px'
           }}>Click here</Link></p>
           <br />
@@ -168,7 +167,7 @@ export const Login = () => {
           <br />
           <button className="login-btn-regis"><Link to={"/register"} style={{
             textDecoration : 'none',
-            color : '#20dbc2'
+            color : '#58D68D'
           }}>Register</Link></button>
       </div>
     </div>

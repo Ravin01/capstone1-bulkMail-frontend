@@ -5,11 +5,15 @@ import ViewMail from "./ViewMail";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './ImportantMails.css'
+import { useDispatch } from "react-redux";
+import { importantCount } from "../../src/features/ImportantMailCount";
 
 const ImportantMails = () => {
   const [mails, setMails] = useState([]);
   const [singleMail, setSingleMail] = useState("");
   const [viewMail, setViewMail] = useState(false);
+
+  const dispatch = useDispatch()
 
   const { accessToken } = JSON.parse(sessionStorage.getItem("user"));
 
@@ -23,6 +27,8 @@ const ImportantMails = () => {
     const allMails = await response.json();
     const reverseMails = allMails.reverse();
     setMails(reverseMails);
+    // console.log(mails.length)
+    dispatch(importantCount(reverseMails.length))
   };
 
   const handleCancelViewMail = () => {
@@ -85,39 +91,34 @@ const ImportantMails = () => {
     <div>
       <h3 className="imMails-head-logo">Important Mails</h3>
       <div>
-        <table className="imMails-table">
-          <div className="imMails-table-body">
-            <tbody>
+       
+          <div className="imMails-body">
+            <div className="imMails-body-sec">
               {mails.map((d, i) => (
-                <tr
+                <div
                   key={i}
-                  className="imMails-table-mail"
+                  className="imMails-mail"
                   style={{
                     overflow: "scroll",
                   }}
                 >
-                  <div>
-                    <td className="imMails-table-sn">{i + 1}</td>
-                    <td className="imMails-table-to">{d.to}</td>
-                    <td className="imMails-table-subject">{d.subject}</td>
+                  <div className="imMails-content" onClick={() => handleOpenView(d.mailId)}>
+
+                    <p className="imMails-table-to">{d.to}</p>
+                    <p className="imMails-table-subject">{d.subject}</p>
                   </div>
-                  <td className="imMails-table-action">
-                    <button
-                      onClick={() => handleOpenView(d.mailId)}
-                      className="imMails-viewBtn"
-                    >
-                      Explore
-                    </button>
+                  <div className="imMails-table-action">
+                    
                     <button
                       className="imMails-importBtn"
                       onClick={() => handleRemoveMail(d.mailId)}
                     >
                       Remove
                     </button>
-                  </td>
-                </tr>
+                  </div>
+                </div>
               ))}
-            </tbody>
+
           </div>
           <ToastContainer
             position="top-right"
@@ -131,7 +132,7 @@ const ImportantMails = () => {
             pauseOnHover
             theme="dark"
           />
-        </table>
+        </div>
         {viewMail && (
           <ViewMail singleMail={singleMail} cancelView={handleCancelViewMail} />
         )}

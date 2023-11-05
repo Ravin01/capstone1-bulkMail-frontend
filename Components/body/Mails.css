@@ -1,26 +1,30 @@
-.mails-table, .mails-table-body, .mails-table-header{
+.mails-body{
     width: 75vw;
 }
 .mails-table-header{
     display: flex;
     text-align: left;
 }
-.mails-table-body{
+.mails-body-sec{
     height: 79vh;
     overflow: scroll;
 }
-th{
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 10px;
+.mails-mail{
+    width: 99%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #040404;
+    border-radius: 10px;
+    margin: 8px 5px;
+    color: #ecf0f1;
+    padding: 0px 10px;
+    /* border: 2px solid #67cb1b; */
+    border: 2px solid #2ECC71;
 }
-td{
-    font-size: 14px;
-    overflow-x: scroll;
-    /* border: 1px solid black; */
-}
-.mails-table{
-    border-collapse: collapse;
+.mails-mail:hover{
+    transform: scale(1.01);
 }
 .mails-table-sn{
     width: 4vw;
@@ -28,61 +32,58 @@ td{
 }
 .mails-table-to{
     width: 230px;
-    padding-top: 10px;
+    font-size: 14px;
+    /* padding-top: 10px; */
 }
 .mails-table-subject{
-    width: 39vw;
-    padding-top: 10px;
-}
-.mails-table-mail{
-    height: 35px;
+    width: 63vw;
+    font-size: 14px;
+    text-wrap: nowrap;
+    /* padding-top: 10px; */
+    overflow: hidden;
 }
 .mails-table-action{
-    padding-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 4px 0px;
 }
-
-.mails-viewBtn{
-    padding: 5px 10px;
-    border: none;
-    background-color: #154360;
-    border-radius: 10px;
-    color: #ecf0f1;
-    font-weight: 600;
-    margin: 0px 5px 0px 0px;
-    font-size: 11px;
+.mails-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 100%;
     cursor: pointer;
 }
 .mails-importBtn{
-    padding: 5px 10px;
+    padding: 7px 10px;
     border: none;
-    background-color: #0B5345;
+    background-color: #82E0AA;
     border-radius: 10px;
-    color: #ecf0f1;
+    color: #242424;
     font-weight: 600;
     font-size: 11px;
     cursor: pointer;
 }
+
 .mails-head-logo{
     font-size: 25px;
     margin-bottom: 10px;
+    color: #040404;
 }
-tr:nth-child(odd) {
-    background-color: #A6ACAF;
-}
-@media screen and (max-width:1150px){
-    .mails-table-subject{
-        width: 27vw;
-    }
-}
+
+
 
 @media screen and (max-width:970px) {
     .mails-table-subject{
-        width: 22vw;
+        width: 52vw;
     }
 }
 
 @media screen and (max-width:885px){
-    .mails-table, .mails-table-body, .mails-table-mail{
+    .mails-body{
         width: 95vw;
     }
     .mails-table-subject{
@@ -117,7 +118,7 @@ tr:nth-child(odd) {
         width: 98vw;
     }
     .mails-table-subject{
-        width: 20vw;
+        width: 15vw;
         font-size: 13px;
     }
     .mails-table-to{

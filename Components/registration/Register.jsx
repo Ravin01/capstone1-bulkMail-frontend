@@ -173,7 +173,7 @@ function Register() {
             to={"/login"}
             style={{
               textDecoration: "none",
-              color: "#20dbc2",
+              color: "#2ECC71",
             }}
           >
             Login

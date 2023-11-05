@@ -5,11 +5,22 @@ import "./Mails.css";
 import ViewMail from "./ViewMail";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { mailsCount } from "../../src/features/MailsCountSlice";
+
 
 const Mails = () => {
+
+
   const [mails, setMails] = useState([]);
   const [singleMail, setSingleMail] = useState("");
   const [viewMail, setViewMail] = useState(false);
+  
+  const dispatch = useDispatch();
+
+// const getMailsApiCalls = useSelector((state)=> state.getMailsReducer)
+// console.log(getMailsApiCalls)
+
 
   const { accessToken } = JSON.parse(sessionStorage.getItem("user"));
 
@@ -23,8 +34,12 @@ const Mails = () => {
     const allMails = await response.json();
     const reverseMails = allMails.reverse();
     setMails(reverseMails);
+    dispatch(mailsCount(mails.length))
   };
 
+  // if(getMailsApiCalls === true){
+  //   getMails()
+  // }
   const handleCancelViewMail = () => {
     if (viewMail === true) {
       setViewMail(false);
@@ -84,6 +99,9 @@ const Mails = () => {
       });
     }
   };
+
+
+
   useEffect(() => {
     handleOpenView();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -96,40 +114,42 @@ const Mails = () => {
     <div>
       <h3 className="mails-head-logo">All Mails</h3>
       <div>
-        <table className="mails-table">
-          <div className="mails-table-body">
-            <tbody>
+        
+        <div className="mails-body">
+          <div className="mails-body-sec">
+          
               {mails.map((d, i) => (
-                <tr
+                
+                <div
                   key={i}
-                  className="mails-table-mail"
+                  className="mails-mail"
                   style={{
                     overflow: "scroll",
                   }}
+                  
                 >
-                  <div>
-                    <td className="mails-table-sn">{i + 1}</td>
-                    <td className="mails-table-to">{d.to}</td>
-                    <td className="mails-table-subject">{d.subject}</td>
+                  
+                  <div className="mails-content" 
+                  onClick={() => handleOpenView(d.mailId)}
+                  >
+                    <p className="mails-table-to">{d.to}</p>
+                    <p className="mails-table-subject">{d.subject}</p>
                   </div>
-                  <td className="mails-table-action">
-                    <button
-                      onClick={() => handleOpenView(d.mailId)}
-                      className="mails-viewBtn"
-                    >
-                      Explore
-                    </button>
+                  <div className="mails-table-action">
+                    
                     <button
                       className="mails-importBtn"
                       onClick={() => handleAddImportant(d.mailId)}
                     >
                       Add to Important
                     </button>
-                  </td>
-                </tr>
+                  </div>
+                  
+                </div>
+               
               ))}
-            </tbody>
-          </div>
+               
+          </div>  
           <ToastContainer
             position="top-right"
             autoClose={5000}
@@ -142,7 +162,8 @@ const Mails = () => {
             pauseOnHover
             theme="dark"
           />
-        </table>
+        </div>
+       
         {viewMail && (
           <ViewMail singleMail={singleMail} cancelView={handleCancelViewMail} />
         )}

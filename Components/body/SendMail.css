@@ -15,7 +15,7 @@
   width: 60vw;
   background-color: #ecf0f1;
   border-radius: 15px;
-  box-shadow: #1d8348 0px 3px 8px;
+  border: 4px solid #2ECC71;
 }
 .sendMail-content {
   overflow-y: scroll;
@@ -144,6 +144,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 3px solid #2ECC71;
 }
 .sendMail-sending{
   width: 140px;

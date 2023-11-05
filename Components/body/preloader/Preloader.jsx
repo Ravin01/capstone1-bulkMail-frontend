@@ -1,10 +1,12 @@
 import './preloader.css'
+import icon from '../../../src/assets/email.png'
 
 const Preloader = () => {
   return (
     <div className='preloader-container'>
-      <h1 className='preloader-mail'>Mail System</h1>
+      <img src={icon} alt="" className='preloader-icon' />
       <div className="loader"></div>
+      <h1 className='preloader-mail'>Mail System</h1>
     </div>
   )
 }

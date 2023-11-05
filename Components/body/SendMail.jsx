@@ -4,6 +4,8 @@ import { backEndUrl } from "../../config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./SendMail.css";
+// import { useDispatch } from "react-redux";
+// import { getMailsApi } from "../../src/features/getMailsSlice";
 
 const SendMail = ({ cancelBtn }) => {
   const [data, setData] = useState({
@@ -14,6 +16,10 @@ const SendMail = ({ cancelBtn }) => {
   const [emails, setEmails] = useState([]);
   const count = emails.length;
   const [inputValue, setInputValue] = useState("");
+  // const [getStateMails, setStateMails] = useState(false);
+
+  // const dispatch = useDispatch();
+
   const handleChange = (ele) => {
     const { name, value } = ele.target;
     setData({
@@ -21,20 +27,19 @@ const SendMail = ({ cancelBtn }) => {
       [name]: value,
     });
   };
-  const [sending, setSending] = useState(false)
-  const {accessToken} = JSON.parse(sessionStorage.getItem('user'))
+  const [sending, setSending] = useState(false);
+  const { accessToken } = JSON.parse(sessionStorage.getItem("user"));
   const handleSubmit = async (ele) => {
     ele.preventDefault();
-    setSending(true)
+    setSending(true);
     const newMail = await fetch(`${backEndUrl}/mails`, {
       method: "POST",
       body: JSON.stringify({ ...data, to: emails }),
       headers: {
         "Content-Type": "application/json",
-        'auth-token' : accessToken
+        "auth-token": accessToken,
       },
     });
-
 
     if (newMail.status === 200) {
       setData({
@@ -43,8 +48,8 @@ const SendMail = ({ cancelBtn }) => {
         text: "",
       });
       setEmails([]);
-      setSending(false)
-      toast.success(`${count} email successfully`, {
+      setSending(false);
+      toast.success(`${count} email Sent successfully`, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -54,9 +59,11 @@ const SendMail = ({ cancelBtn }) => {
         progress: undefined,
         theme: "dark",
       });
+      // setStateMails(true)
+      // setStateMails(false)
     } else {
-      setSending(false)
-      toast.error("Not sent, Check your connection", {
+      setSending(false);
+      toast.error("Not sent, Fill all input, check connection", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -68,6 +75,7 @@ const SendMail = ({ cancelBtn }) => {
       });
     }
   };
+  // dispatch(getMailsApi(getStateMails));
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -148,9 +156,12 @@ const SendMail = ({ cancelBtn }) => {
               <p>Mails : </p>
               <p>{count}</p>
             </div>
-            <div className="chip-container" placeholder="Enter email in To and hit enter or space-bar">
+            <div
+              className="chip-container"
+              placeholder="Enter email in To and hit enter or space-bar"
+            >
               {emails.map((email, index) => (
-                <div key={index} className="chip" >
+                <div key={index} className="chip">
                   {email}
                   <button
                     onClick={() => handleChipDelete(index)}
@@ -181,10 +192,12 @@ const SendMail = ({ cancelBtn }) => {
         pauseOnHover
         theme="dark"
       />
-      {sending && <div className="sendMail-sending">
-        <div className="preload-sendMail"></div>
-        <h5>Sending {count} ...</h5>
-      </div>}
+      {sending && (
+        <div className="sendMail-sending">
+          <div className="preload-sendMail"></div>
+          <h5>Sending {count} ...</h5>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,19 +4,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #011818;
+  background-color: #141414;
   flex-direction: column;
 }
+.preloader-icon{
+  height: 250px;
+  width: 250px;
+  margin-bottom: 5vw;
+}
 .preloader-mail{
-  color: #fff;
-  margin-bottom: 10vw;
+  color: #2ecc71;
+  margin-top: 4vw;
 }
 .loader{
   display: block;
   position: relative;
   height: 12px;
   width: 60%;
-  border: 1px solid #fff;
+  border: 1px solid #2ecc71;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -27,7 +32,7 @@
   top: 0;
   height: 100%;
   width: 0;
-  background: #fff;
+  background: #2ecc71;
   animation: 2.5s prog ease-in;
 }
 
@@ -38,9 +43,14 @@
 @media screen and (max-width:480px) {
   .preloader-mail{
     font-size: 22px;
-    margin-bottom: 20vw;
+    margin-top: 10vw;
   }
   .loader{
     width: 80%;
+  }
+  .preloader-icon{
+    height: 150px;
+    width: 150px;
+    margin-bottom: 15vw;
   }
 }
